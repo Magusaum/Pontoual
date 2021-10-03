@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Login - Pontual</title>
+    <link rel="icon" href="images/logo.png" type="image/gif">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <img class="icon" src="images/logo.png" alt="">
+      <div class="logo_name">Armagedom</div>
+      <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li class="bloqueado">
+       <a onclick="bloqueado()">
+         <i class='bx bx-block'></i>
+         <span class="links_name">Bater Ponto</span>
+       </a>
+       <span class="tooltip">Bater Ponto</span>
+     </li>
+      <li class="bloqueado">
+       <a onclick="bloqueado()">
+         <i class='bx bx-block'></i>
+         <span class="links_name">Minha conta</span>
+       </a>
+       <span class="tooltip">Minha conta</span>
+     </li>
+     <li class="bloqueado">
+       <a onclick="bloqueado()">
+         <i class='bx bx-block'></i>
+         <span class="links_name">Minhas Horas</span>
+       </a>
+       <span class="tooltip">Minhas Horas</span>
+     </li>
+     <li class="bloqueado">
+       <a onclick="bloqueado()">
+         <i class='bx bx-block'></i>
+         <span class="links_name">Calculos</span>
+       </a>
+       <span class="tooltip">Calculos</span>
+     </li>
+     <li class="bloqueado">
+      <a onclick="bloqueado()">
+        <i class='bx bx-block'></i>
+        <span class="links_name">Suporte</span>
+      </a>
+      <span class="tooltip">Suporte</span>
+    </li>
+    <li>
+      <p id="avisologin" class="text-center">Faça login para ter acesso</p>
+      <span class="tooltip">Faça login para ter acesso</span>
+    </li>
+    </ul>
+  </div>
+  <section class="home-section center">
+    <div class="login-area">
+      <img src="images/logo.png" alt="Logo empresa">
+      <h2 class="text-center">FAZER LOGIN</h2>
+      <p class="text-center">Você precisa fazer login para bater seu ponto</p>
+      <form class="form-login" action="" method="post">
+        <input type="email" name="email" placeholder="Email" required="">
+        <input id="inputsenha" type="password" name="senha" placeholder="Senha" required="">
+        <i class='bx bxs-show olho' id="olho"></i>
+        <div class="form-btns">
+          <button>Logar</button>
+          <a href="">Esqueci minha senha</a>
+        </div>
+        
+      </form>
+    </div>
+  </section>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

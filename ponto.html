@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Home - Pontual</title>
+    <link rel="icon" href="images/logo.png" type="image/gif">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <img class="icon" src="images/logo.png" alt="">
+      <div class="logo_name">Armagedom</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+       <a>
+         <i class='bx bx-current-location'></i>
+         <span class="links_name">Bater Ponto</span>
+       </a>
+       <span class="tooltip">Você já está nesa página</span>
+     </li>
+     <li>
+      <a href="conta.html">
+        <i class='bx bx-user' ></i>
+        <span class="links_name">Minha conta</span>
+      </a>
+      <span class="tooltip">Minha conta</span>
+    </li>
+    <li>
+      <a href="horas.html">
+        <i class='bx bx-stopwatch'></i>
+        <span class="links_name">Minhas Horas</span>
+      </a>
+      <span class="tooltip">Minhas Horas</span>
+    </li>
+    <li>
+      <a href="calculos.html">
+        <i class='bx bxs-calculator' ></i>
+        <span class="links_name">Calculos</span>
+      </a>
+      <span class="tooltip">Calculos</span>
+    </li>
+    <li>
+      <a href="suporte.html">
+       <i class='bx bx-support' ></i>
+        <span class="links_name">Suporte</span>
+      </a>
+      <span class="tooltip">Suporte</span>
+    </li>
+     <li class="profile">
+         <div class="profile-details">
+           <i class='bx bxs-user' ></i>
+           <div class="name_job">
+             <div class="name">Nome Usuário</div>
+             <div class="type">Setor</div>
+           </div>
+         </div>
+         <a href="login.html"><i class='bx bx-log-out' id="log_out" ></i></a>
+     </li>
+    </ul>
+  </div>
+  <section class="home-section center">
+    <div class="ponto">
+      <h2 id="expediente">Expediente</h2>
+      <h3 id="hora" class="horario ">--:--:--</h3>
+      <a id="link" title="Após bater seu ponto você verá suas horas">Bater Ponto</a>
+      <div class="ponto-horas">
+        <h2 id="pdata" class="text-center"></h2>
+        <ul>
+          <li class="border-top-ph">
+            <span>1º ponto</span>
+            <h3>00:00:00</h3>
+          </li>
+          <li class="border-top-ph">
+            <span>2º ponto</span>
+            <h3>00:00:00</h3>
+          </li>
+          <li class="border-top-ph">
+            <span>1º ponto</span>
+            <h3>00:00:00</h3>
+          </li>
+          <li class="border-top-ph">
+            <span>2º ponto</span>
+            <h3>00:00:00</h3>
+          </li>
+        </ul>
+        <ul>
+          <li class="border-bot-ph">
+            <p>1º expediente</p>
+          </li>
+          <li class="border-bot-ph">
+            <p>2º expediente</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </section>
+  <script type="text/javascript">
+
+    var data = new Date();
+    var dia = String(data.getDate()).padStart(2, '0');
+    var mes = String(data.getMonth() + 1).padStart(2, '0');
+    var ano = data.getFullYear();
+    dataAtual = dia + '/' + mes + '/' + ano;
+    var pdata = document.getElementById('pdata');
+    pdata.innerHTML = 'Pontos batidos hoje '+dataAtual+'';
+
+    setInterval(function(){
+        let novaHora = new Date();
+        let hora = novaHora.getHours();
+        let minuto = novaHora.getMinutes();
+        let segundo = novaHora.getSeconds();
+        minuto = zero(minuto);
+        segundo = zero(segundo);
+        document.getElementById('hora').textContent = hora+':'+minuto+':'+segundo;
+
+        var expediente = document.getElementById('expediente');
+        var link = document.getElementById('link');
+        if (hora >= 8 & hora < 12){
+          expediente.innerHTML = 'Primeiro expediente';
+          link.setAttribute('href', 'ponto.html?expediente=1&hora='+hora+':'+minuto+':'+segundo+'');
+        }else if (hora >= 13 & hora < 17){
+          expediente.innerHTML = 'Segundo expediente';
+          link.setAttribute('href', 'ponto.html?expediente=2&hora='+hora+':'+minuto+':'+segundo+'');
+        }else{
+          expediente.innerHTML = 'Hora extra';
+          link.setAttribute('href', 'ponto.html?extra=true&hora='+hora+':'+minuto+':'+segundo+'');
+        }
+    },1000)
+      function zero(x) {
+      if (x < 10) {
+          x = '0' + x;
+      } return x;
+    }
+  </script>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
